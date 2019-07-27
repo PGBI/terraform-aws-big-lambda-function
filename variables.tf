@@ -43,3 +43,9 @@ variable "env_vars" {
   default     = {}
   description = "A map that defines environment variables for the Lambda function."
 }
+
+variable "layers_arns" {
+  type        = list(string)
+  default     = null
+  description = "A list of Lambda Layer ARNs attached to the Lambda Function."
+}

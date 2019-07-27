@@ -94,6 +94,7 @@ resource "aws_lambda_function" "main" {
   role              = module.role.arn
   runtime           = var.runtime
   memory_size       = var.memory_size
+  layers            = var.layers_arns
   timeout           = var.timeout
   s3_bucket         = module.source_store.name
   s3_key            = aws_s3_bucket_object.package.key
