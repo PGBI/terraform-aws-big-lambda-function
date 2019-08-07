@@ -1,10 +1,12 @@
 terraform {
-  required_version = ">= 0.12"
+  required_version = ">= 0.12.6"
 }
 
 provider "archive" {
   version = "~> 1.2"
 }
+
+data "aws_caller_identity" "current" {}
 
 /**
  * Log group the lambda function will ship its logs to.
@@ -71,7 +73,7 @@ module "role_policy" {
   role_name = module.role.name
   statements = [{
     actions   = ["logs:DescribeLogGroups"]
-    resources = ["arn:aws:logs:*:${var.project.account_id}:*"]
+    resources = ["arn:aws:logs:*:${data.aws_caller_identity.current.account_id}:*"]
     effect    = "Allow"
     }, {
     actions = [

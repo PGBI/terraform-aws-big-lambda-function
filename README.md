@@ -15,7 +15,7 @@ module instead, which won't create the s3 bucket and directly upload the deploym
 ```hcl
 module "project" {
   source  = "PGBI/project/aws"
-  version = "~>0.1.0"
+  version = "~>0.2.0"
 
   name     = "myproject"
   vcs_repo = "github.com/account/project"
