@@ -3,6 +3,11 @@ output "arn" {
   value       = aws_lambda_function.main.arn
 }
 
+output "invoke_arn" {
+  description = "The ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration's uri."
+  value       = aws_lambda_function.main.invoke_arn
+}
+
 output "name" {
   description = "Name of the lambda function."
   value       = aws_lambda_function.main.function_name
